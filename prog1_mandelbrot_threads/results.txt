@@ -1,0 +1,55 @@
+P1 horizontal block baseline, view 1
+
+2 threads:
+serial = 224.549 ms
+threaded = 114.420 ms
+speedup = 1.96x
+
+4 threads:
+serial = 224.520 ms
+threaded = 92.951 ms
+speedup = 2.42x
+
+8 threads:
+serial = 224.614 ms
+threaded = 57.234 ms
+speedup = 3.92x
+
+hypothesis:
+Speedup is not linear. Scaling is nearly double with two threads, but does not grow linearly with four and eight threads. 
+A likely explanation is that equal-sized horizontal blocks do not contain equal amounts of computation, because different regions of the image require different numbers of iterations. 
+If some threads finish much earlier than others, the overall execution time is determined by the slowest thread.
+
+results:
+
+2 threads:
+thread 0 ≈ 117 ms
+thread 1 ≈ 118 ms
+
+4 threads:
+thread 0 ≈ 22.5 ms
+thread 1 ≈ 94.5 ms
+thread 2 ≈ 94.8 ms
+thread 3 ≈ 22.8 ms
+
+8 threads:
+thread 0 ≈ 3.7 ms
+thread 1 ≈ 18.5 ms
+thread 2 ≈ 37.9 ms
+thread 3 ≈ 56.6 ms
+thread 4 ≈ 57.4 ms
+thread 5 ≈ 38.6 ms
+thread 6 ≈ 19.5 ms
+thread 7 ≈ 4.1 ms
+
+The timing measurements confirm that the current decomposition creates severe imbalance. With two threads, the two halves have nearly equal execution times, so speedup is close to 2×. 
+With four threads, the two central blocks take roughly 94–95 ms while the outer blocks take only about 22–23 ms. 
+With eight threads, execution times range from about 4 ms for the outermost blocks to about 57 ms for the central blocks. 
+Since the overall computation cannot complete until the slowest thread finishes, many cores sit idle after completing their assigned blocks. 
+This explains why speedup increases from only 2.42× with four threads to 3.92× with eight threads rather than approaching linear scaling.
+
+
+Improved interleaved rows:
+2 threads: 1.96x
+4 threads: 3.85x
+8 threads: 7.60x
