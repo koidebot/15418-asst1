@@ -1,0 +1,29 @@
+Vector Width:              2
+Total Vector Instructions: 411579
+Vector Utilization:        81.453621%
+Utilized Vector Lanes:     670492
+Total Vector Lanes:        823158
+
+Vector Width:              4
+Total Vector Instructions: 211215
+Vector Utilization:        80.646024%
+Utilized Vector Lanes:     681346
+Total Vector Lanes:        844860
+
+Vector Width:              8
+Total Vector Instructions: 106229
+Vector Utilization:        80.467434%
+Utilized Vector Lanes:     683838
+Total Vector Lanes:        849832
+
+Vector Width:              16
+Total Vector Instructions: 53128
+Vector Utilization:        80.461103%
+Utilized Vector Lanes:     683958
+Total Vector Lanes:        850048
+
+Vector Width:              32
+Total Vector Instructions: 26608
+Vector Utilization:        80.354358%
+Utilized Vector Lanes:     684182
+Total Vector Lanes:        851456
