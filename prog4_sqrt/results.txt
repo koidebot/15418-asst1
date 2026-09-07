@@ -1,0 +1,16 @@
+base:
+
+[sqrt serial]:          [685.784] ms
+[sqrt ispc]:            [144.757] ms
+[sqrt task ispc]:       [19.906] ms
+                                (4.74x speedup from ISPC)
+                                (34.45x speedup from task ISPC)
+
+good: 
+                                (7.13x speedup from ISPC)
+                                (52.32x speedup from task ISPC)
+
+
+bad: 
+                               (0.96x speedup from ISPC)
+                                (6.98x speedup from task ISPC)
